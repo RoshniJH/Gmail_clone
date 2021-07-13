@@ -13,21 +13,27 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import PersonIcon from '@material-ui/icons/Person';
 import DuoIcon from '@material-ui/icons/Duo';
 import PhoneIcon from '@material-ui/icons/Phone';
+import { useDispatch } from 'react-redux';
+import { openSendMessage } from './features/mailSlice';
 
 function Sidebar() {
+const  dispatch = useDispatch();
+
     return <div className="sidebar">
     <Button 
     startIcon={<AddIcon fontSize="large" />} 
-    className="startbar__compose">
+    className="startbar__compose"
+    onClick={() =>dispatch(openSendMessage())}
+    >
     Compose
     </Button>
     <SidebarOption Icon={InboxIcon} title="Inbox" number={53} selected={true}/>
-    <SidebarOption Icon={StarIcon} title="Starred" number={53} />
-    <SidebarOption Icon={AccessTimeIcon} title="Snoozed" number={53} />
-    <SidebarOption Icon={LabelImportantIcon} title="Important" number={53} />
-    <SidebarOption Icon={NearMeIcon} title="Sent" number={53} />
-    <SidebarOption Icon={NoteIcon} title="Drafts" number={53} />
-    <SidebarOption Icon={ExpandMoreIcon} title="More" number={53} />
+    <SidebarOption Icon={StarIcon} title="Starred" number={5} />
+    <SidebarOption Icon={AccessTimeIcon} title="Snoozed" number={2} />
+    <SidebarOption Icon={LabelImportantIcon} title="Important" number={5} />
+    <SidebarOption Icon={NearMeIcon} title="Sent" number={20} />
+    <SidebarOption Icon={NoteIcon} title="Drafts" number={3} />
+    <SidebarOption Icon={ExpandMoreIcon} title="More" number={7} />
     <div className="sidebar__footer">
     <div className="sidebar__footerIcon">
     <IconButton>
